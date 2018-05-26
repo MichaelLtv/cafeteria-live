@@ -8,7 +8,7 @@ const expressValidator = require('express-validator');
 const mongoose = require('mongoose');
 // const Cafeteria = require('./models/cafeteria.js')
 const app = express();
-const url = 'mongodb://localhost:27017/cafeteria';
+const url = process.env.MONGOLAB_URI;
 
 //=========================//
 
@@ -19,7 +19,7 @@ const cafeteriaSchema = new Schema({
     type: mongoose.Schema.Types.Mixed,
     required: true,
   },
-  message: {
+  menu: {
     type: mongoose.Schema.Types.Mixed,
     required: true,
   },
@@ -71,4 +71,5 @@ mongoose.connect(url, function (err, db) {
    
    //==========================//
 
-   const server = app.listen(3000);
+   const server = app.listen(process.env.url || 3000);
+   console.log('starting applicaiton.  Good job!');
