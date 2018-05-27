@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import SimpleComponent from './SimpleComponent/SimpleComponent';
+import Homepage from './Homepage/Homepage';
 
 export default function Router() {
   return (
@@ -10,7 +10,7 @@ export default function Router() {
         <Route
           exact
           path="/"
-          render={() => <SimpleComponent message="it's a message" />}
+          render={() => <Homepage />}
         />
       </Switch>
     </BrowserRouter>
